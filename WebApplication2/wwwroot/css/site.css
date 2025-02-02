@@ -1,0 +1,579 @@
+﻿html {
+  position: relative;
+  min-height: 100%;
+}
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.pr-2 {
+    padding-right: 8px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.header {
+    background: radial-gradient(circle, rgba(255, 127, 50, 1) 0%, rgba(255, 79, 88, 1) 100%);
+    margin-bottom: 80px;
+}
+
+.header .row {
+        margin-top: 70px;
+}
+
+.container-box {
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+a.btn:hover {
+    
+    color: #dc3545;
+}
+a.btn-primary{
+    cursor:pointer;
+    text-decoration: none;
+}
+   
+a.btn-primary:hover{
+    opacity:0.8;
+}
+.btn-back {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+    .btn-back:hover {
+        background-color: #495057;
+    }
+.nav {
+    display: flex;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    .banner.banner z-index: 1000;
+}
+
+.logo img {
+    width: 125px;
+    cursor: pointer;
+}
+
+.menu {
+    flex: 1;
+    text-align: right;
+}
+
+.menu-list {
+    display: inline-block;
+    list-style-type: none;
+}
+
+.menu-item {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+    .menu-item a {
+        color: #fff;
+    }
+.nav-link{
+    position: relative;
+}
+.nav-link-line::after {
+    content: '';
+    position: absolute;
+    right: -7px;
+    top: 7px;
+    bottom: 7px;
+    width: 1px;
+    background-color: #999;
+}
+    }
+a {
+    text-decoration: none;
+}
+.with-border-right {
+    border-right: 1px solid #000; /* Màu viền và định dạng khác có thể được sử dụng */
+    padding-right: 10px; /* Tăng khoảng cách giữa nút và viền */
+}
+
+.with-border-left {
+    border-left: 1px solid #000; /* Màu viền và định dạng khác có thể được sử dụng */
+    padding-left: 10px; /* Tăng khoảng cách giữa nút và viền */
+}
+.nav{
+    position:relative;
+}
+.nav-cart {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 39%;
+    transform: translateY(-50%);
+}
+.row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.header .row {
+    margin-top: 70px;
+}
+
+.col-2 {
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+    .col-2 img {
+        max-width: 100%;
+        padding: 50px 0;
+    }
+
+    .col-2 p {
+        color: #fff;
+    }
+
+    .col-2 h1 {
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 60px;
+        margin: 25px 0;
+    }
+
+
+.banner-slider {
+    width: 100%;
+}
+
+.banner {
+    display: none;
+}
+    .banner h1 {
+        overflow: visible;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+/* Hiển thị banner hiện tại */
+.slick-active .banner {
+    display: block;
+}
+.btn-primary {
+    display: inline-block;
+    padding: 16px 29px;
+    color: #fff;
+    background-color: #ff523b;
+    border-radius: 30px;
+    margin-top: 16px;
+}
+.slick-dots {
+    bottom: calc(100% - 98%);
+}
+
+/* Định dạng cho các phần tử slide */
+.slick-carousel .slide-item img {
+    width: 100%;
+    height: auto;
+}
+
+.slick-initialized .slick-slide {
+    display: flex;
+}
+
+.slide {
+    justify-content: space-between; 
+}
+
+.slide-item {
+    flex: 0 0 auto;
+    margin-right: 15px; 
+}
+
+    .slide-item:last-child {
+        margin-right: 0;
+    }
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    border: none;
+    cursor: pointer;
+    padding: 10px; /* Kích thước nút */
+}
+    /* Định dạng khi hover */
+    .slick-prev:hover,
+    .slick-next:hover {
+        opacity: 0.7;
+    }
+
+    .slick-next:before, .slick-prev:before {
+        font-family: slick;
+        position: absolute;
+        left: 1px;
+        font-size: 20px;
+        line-height: 0;
+        opacity: .75;
+        color: #555;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+
+/*Cart*/
+.quantity-input {
+    display: flex;
+    align-items: center;
+}
+
+    .quantity-input input[type="text"] {
+        width: 50px;
+        text-align: center;
+    }
+
+    .quantity-input button {
+        background-color: transparent;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        padding: 5px 10px;
+        font-size: 14px;
+        color: #333;
+    }
+
+.minus-btn, .plus-btn {
+    transition: background-color 0.3s;
+}
+
+    .minus-btn:hover, .plus-btn:hover {
+        background-color: #f2f2f2;
+    }
+
+.remove-link {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+    .remove-link:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+
+/**/
+/* categories */
+.container {
+    min-width: 1080px;
+    margin: auto;
+    padding: 0 25px;
+}
+
+.categories {
+    margin-bottom: 70pxh;
+}
+
+.col-3 {
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+    .col-3 img {
+        width: 100%;
+    }
+
+/* end */
+.title {
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+}
+
+    .title::after {
+        position: absolute;
+        content: "";
+        background: #ff523b;
+        width: 80px;
+        height: 5px;
+        border-radius: 5px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+.card {
+    position: relative;
+    border: 1px solid #dee2e6; /* Viền cho thẻ card */
+    border-radius: 10px; /* Bo tròn góc cho thẻ card */
+    overflow: hidden; /* Ẩn nội dung vượt ra ngoài */
+    transition: box-shadow 0.3s; /* Hiệu ứng khi rê chuột vào */
+}
+
+    .card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Màu nền và độ mờ của overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Ẩn overlay mặc định */
+    transition: opacity 0.3s; /* Hiệu ứng khi hover */
+}
+    .overlay .btn-details {
+        background-color: #ff523b;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+        .overlay .btn-details:hover {
+            background-color: #117a8b;
+        }
+.card:hover .overlay {
+    opacity: 1; /* Hiển thị overlay khi hover */
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-height: 2em;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.rating {
+    color: #f8b739;
+    margin-bottom: 10px;
+}
+
+    .rating i {
+        font-size: 1rem;
+    }
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.input-group label {
+    margin-right: 10px;
+    line-height: 2;
+}
+
+.btn-info {
+    background-color: #ff523b;
+    color: #fff;
+    border: none;
+    transition: all 0.3s;
+}
+
+    .btn-info:hover {
+        background-color: #117a8b;
+    }
+
+@keyframes added-to-cart {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.added-to-cart-animation {
+    animation: added-to-cart 0.5s ease-in-out;
+}
+/* quang cao san pham */
+.offer {
+    background: radial-gradient(circle, rgba(255, 127, 50, 1) 0%, rgba(255, 79, 88, 1) 100%);
+    margin-top: 80px;
+    padding: 30px 0;
+}
+
+.col-2 .img-offer {
+    padding: 50px;
+}
+
+.small-text {
+    color: #fff;
+}
+
+/* end */
+
+/* nhan xet cua khach hang */
+.testimonial {
+    padding-top: 100px;
+}
+
+    .testimonial .col-3 {
+        text-align: center;
+        padding: 40px 20px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 1);
+        cursor: pointer;
+        transition: transform 0.5s;
+    }
+
+        .testimonial .col-3 .avartar {
+            width: 50px;
+            margin-top: 20px;
+            border-radius: 50%;
+        }
+
+        .testimonial .col-3:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial .col-3 h3 {
+            font-weight: 600;
+            color: #555;
+            font-size: 16px;
+        }
+
+.fa.fa-quote-left {
+    font-size: 34px;
+    color: #ff523b;
+}
+
+.col-3 p {
+    font-size: 12px;
+    margin: 12px 0;
+    color: #777;
+}
+
+/* thuong hieu */
+.brands {
+    margin: 100px auto;
+}
+
+.col-5 {
+    width: 160px;
+}
+
+.img-brand {
+    width: 100%;
+    cursor: pointer;
+    filter: grayscale(100%); /* set hieu ung chuyen doi mau thanh gray(100%) */
+}
+
+    .img-brand:hover {
+        filter: grayscale(0);
+    }
+
+/* footer */
+.footer {
+    background: linear-gradient(to bottom, rgba(255, 127, 50, 1) 0%, rgba(255, 79, 88, 1) 100%);
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+    .footer p {
+        color: blanchedalmond;
+    }
+
+    .footer li {
+        color: blanchedalmond;
+    } 
+    .footer h3 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+.footer-col-1,
+.footer-col-2,
+.footer-col-3,
+.footer-col-4 {
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-col-1 {
+    flex-basis: 30%;
+}
+
+.footer-col-2 {
+    flex: 1;
+    text-align: center;
+}
+
+    .footer-col-2 img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+.footer-col-3,
+.footer-col-4 {
+    flex-basis: 12%;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.app-logo {
+    margin-top: 20px;
+}
+
+    .app-logo img {
+        width: 140px;
+    }
+
+.footer hr {
+    border: none;
+    background: #b5b5b5;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.copyright {
+    text-align: center;
+}

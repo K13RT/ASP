@@ -1,0 +1,135 @@
+﻿    @model ShoppingCart
+
+    @{
+        Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+    }
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Giỏ Hàng Của Bạn</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            h2 {
+                color: #333;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            tr:hover {
+                background-color: #ddd;
+            }
+
+            .remove-link {
+                color: #c00;
+                text-decoration: none;
+            }
+
+                .remove-link:hover {
+                    text-decoration: underline;
+                }
+
+            .quantity-input {
+                display: flex;
+                align-items: center;
+            }
+
+            .quantity {
+                width: 50px;
+                text-align: center;
+            }
+
+            .minus-btn,
+            .plus-btn {
+                background-color: #ccc;
+                border: none;
+                cursor: pointer;
+                padding: 5px;
+            }
+
+                .minus-btn:hover,
+                .plus-btn:hover {
+                    background-color: #999;
+                    color: #fff;
+                }
+        </style>
+    </head>
+    <body>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding: 8px">
+            <h2>Giỏ Hàng Của Bạn</h2>
+            <a asp-controller="Order" asp-action="OrderHistory">
+                Lịch sử đặt hàng
+                <i style="width: 30px" class="fa-solid fa-clock-rotate-left"></i>
+            </a>
+        </div>
+
+        @if (Model.Items.Count > 0)
+        {
+            <table>
+                <tr>
+                    <th>Hinh</th>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Số tiền</th>
+                    <th>Tổng tiền</th>
+                    <th>Action</th>
+                </tr>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            <div class="col-md-4">
+                                <img src="@item.ImageUrl" class="card-img" alt="Product Image">
+                            </div>
+                        </td>
+                        <td>@item.Name</td>
+                        <td>
+                            <div class="quantity-input">
+                                <form asp-controller="ShoppingCart" asp-action="UpdateQuantity" method="post">
+                                    <input type="hidden" name="productId" value="@item.Id" />
+                                    <input type="number" class="quantity" name="quantity" value="@item.Quantity" min="1" max="100" />
+                                    <button type="submit">Cập nhật</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td id="itemPrice_@item.Id">@item.Price.ToString("N0") đ</td>
+                        <td id="totalItemPrice_@item.Id">@string.Format("{0:N0}", item.Price * item.Quantity) đ</td>
+                        <td>
+                            <a class="remove-link btn btn-info" asp-action="RemoveFromCart" asp-route-productId="@item.Id" method="post">Remove</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+
+            <div class="mb-3">
+                <a class="btn btn-back" asp-controller="Product" asp-action="Index">Trở về</a>
+                <a class="btn btn-info" asp-action="Checkout">Thanh toán</a>
+            </div>
+        }
+        else
+        {
+            <p>Không có sản phẩm trong giỏ hàng của bạn.</p>
+        }
+    </body>
+    </html>

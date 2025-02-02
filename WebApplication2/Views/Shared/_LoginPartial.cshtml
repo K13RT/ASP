@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var user = await UserManager.GetUserAsync(User);
+        var fullName = user.FullName;
+        <li class="menu-item">
+            <div class="d-inline-block mr-5 pr-2 ">
+                <a id="manage" class="nav-link text-info" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@fullName!</a>
+            </div>
+            <div class="d-inline-block mr-5 pr-2 ">
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Product", new { area = "" })">
+                    <button id="logout" type="submit" class="nav-link btn btn-link text-info">Logout</button>
+                </form>
+            </div>
+        </li>
+        @* <li class="nav-item">
+            
+        </li> *@
+    }
+    else
+    {
+        <li class="menu-item">
+            <div class="d-inline-block mr-5 pr-2 ">
+                <a class="nav-link nav-link-line" id="register" asp-area="Identity" asp-page="/Account/Register" onclick="scrollToSection('register-section')">Đăng ký</a>
+            </div>
+            <div class="d-inline-block">
+                <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login" onclick="scrollToSection('login-section')">Đăng nhập</a>
+            </div>
+        </li>
+    }
+</ul>
